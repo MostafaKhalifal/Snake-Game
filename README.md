@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple Snake game implemented in Unity using C#. The game features a snake that grows longer as it consumes food while avoiding collisions with walls and itself.
+This is a simple Snake game made in Unity with C#. The snake in the game grows longer as it consumes food, avoiding collisions with obstacles and itself.
 
 ## Features
 
