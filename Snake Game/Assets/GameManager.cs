@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
     public GameObject Obs;
     public TextMeshProUGUI Timer;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI YouWin;
+
 
     public float score;
     public TextMeshProUGUI scoreText;
 
-    public float timeRemaining = 20 ;
+    public float timeRemaining = 5 ;
     
 
 
@@ -43,10 +45,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        
+
+
         UpdateScore(0);
 
         UpdateTime(timeRemaining);
+        YouWin.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(false);
+
+        
 
         for (int i = 0; i < starting_count; i++)
         {
@@ -119,7 +127,7 @@ public class GameManager : MonoBehaviour
         {
             UpdateTime(0);
             GameObject.FindObjectOfType<GameManager>().game_over = true;
-            GameOver();
+            Win();
         }
 
 
@@ -186,6 +194,7 @@ public class GameManager : MonoBehaviour
 
 
         StartCoroutine(MoveSnake());
+        
 
     }
 
@@ -231,6 +240,17 @@ public class GameManager : MonoBehaviour
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
     }
-    
 
+    public void Win()
+    {
+        YouWin.gameObject.SetActive(true);
+        YouWin.text = "You Win ! Your Score : " + score;
+    }
+
+    public void over(Vector3 p)
+    {
+
+        GameOver();
+
+    }
 }

@@ -21,7 +21,7 @@ public class SnakePiece : MonoBehaviour
         if (other.tag == "Wall" || other.tag == "Player")
         {
             GameObject.FindObjectOfType<GameManager>().game_over = true;
-
+            GameObject.FindObjectOfType<GameManager>().over(transform.position);
         }
         else if (other.tag == "Food")
         {
